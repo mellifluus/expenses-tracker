@@ -10,3 +10,5 @@ node_modules/
 **/.DS_Store
 #husky
 .husky
+# Ignore redis binary dump (dump.rdb) files
+*.rdb
