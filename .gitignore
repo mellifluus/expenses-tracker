@@ -1,6 +1,6 @@
 # dotenv environment variables file
 .env
-# Dependency directories
+# dependency directories
 node_modules/
 # package-lock.json
 /package-lock.json
@@ -8,3 +8,5 @@ node_modules/
 .vscode
 # macOS
 **/.DS_Store
+#husky
+.husky
