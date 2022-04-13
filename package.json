@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --trace-warnings app.js",
+    "prepare": "husky install .husky",
     "format": "prettier . --write"
+  },
+  "lint-staged": {
+    "*.{js,html,css,json}": [
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",
@@ -24,6 +30,8 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2"
   }
