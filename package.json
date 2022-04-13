@@ -13,6 +13,9 @@
       "prettier --write"
     ]
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mellifluus/expenses-tracker.git"
