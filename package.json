@@ -9,7 +9,7 @@
     "format": "prettier . --write"
   },
   "lint-staged": {
-    "*.{js,html,css,json}": [
+    "*.{js,json,html,css,pug}": [
       "prettier --write"
     ]
   },
@@ -34,6 +34,7 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "@prettier/plugin-pug": "^1.20.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "nodemon": "^2.0.15",
