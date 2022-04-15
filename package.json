@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "dev": "nodemon --trace-warnings app.js",
     "prepare": "husky install .husky",
     "format": "prettier . --write"
