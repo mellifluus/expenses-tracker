@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const db = require('./db/models');
 const mainRoutes = require('./app/routes/main.routes');
 const {
   unresolvedPathHandler,
@@ -7,6 +8,8 @@ const {
 } = require('./app/middlewares/error.handlers');
 
 require('dotenv').config();
+
+db.sequelize.sync({ force: false });
 
 const app = express();
 
