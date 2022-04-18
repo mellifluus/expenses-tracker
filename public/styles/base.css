@@ -1,0 +1,119 @@
+/* CSS RESET - https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing rules */
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+:root {
+  --bg-color: #7395ae;
+  --header-color: #557a95;
+  --btn-color: #b1a296;
+  --gray: #494949;
+  --btn-hover-color: #5d5c61;
+}
+
+html {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+header {
+  flex: 0;
+  height: 5vh;
+  padding: 0.5em;
+  background-color: var(--header-color);
+  box-shadow: 0 0.2em 0.5em var(--gray);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 1.5em;
+}
+
+nav > a {
+  background-color: var(--btn-color);
+  color: #ffffff;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+  border-radius: 5%;
+  transition: 0.2s;
+}
+
+nav > a:hover {
+  background-color: var(--btn-hover-color);
+  transition: 0.2s;
+}
+
+nav > a[active] {
+  pointer-events: none;
+  background-color: var(--btn-hover-color);
+}
+
+main {
+  flex: 1;
+}

@@ -1,0 +1,11 @@
+header
+  nav
+    a(href='/home') Home
+    a(href='/account') Account
+    a(href='/logout') Logout
+
+script.
+  const path = window.location.pathname.slice(1);
+  const link = document.querySelector(`nav > a[href*="${path}"]`);
+
+  if (link) link.setAttribute('active', '');

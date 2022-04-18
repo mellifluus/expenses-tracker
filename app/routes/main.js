@@ -4,7 +4,13 @@ const {
   defaultErrorHandler,
 } = require('../middlewares/error.handlers');
 
-router.get('/', (req, res, next) => res.send('Hello'));
+router.get('/', (_req, res, _next) => {
+  return res.redirect('/home');
+});
+
+router.get('/home', (_req, res, _next) => {
+  return res.render('homepage');
+});
 
 router.use(unresolvedPathHandler);
 router.use(defaultErrorHandler);

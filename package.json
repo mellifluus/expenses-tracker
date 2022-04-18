@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon -e js,json,html,css,pug --quiet --trace-warnings app.js",
     "start": "node app.js",
-    "dev": "nodemon --trace-warnings app.js",
     "prepare": "husky install .husky",
     "format": "prettier . --write"
   },
   "lint-staged": {
-    "*.{js,html,css,json}": [
+    "*.{js,json,html,css,pug}": [
       "prettier --write"
     ]
   },
@@ -35,10 +35,13 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "morgan": "^1.10.0",
+    "pug": "^3.0.2",
     "pg": "^8.7.3",
-    "sequelize": "^6.19.0"
+    "sequelize": "^6.19.0",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "@prettier/plugin-pug": "^1.20.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "nodemon": "^2.0.15",

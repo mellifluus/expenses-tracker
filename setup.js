@@ -1,7 +1,11 @@
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
+const favicon = require('serve-favicon');
 const routes = require('./app/routes/main');
 const { dbSetup } = require('./db/dbSetup');
+
+require('dotenv').config();
 
 exports.appSetup = async () => {
   const app = express();
@@ -9,10 +13,19 @@ exports.appSetup = async () => {
   const session = await dbSetup();
 
   app.set('trust proxy', 1);
+  app.set('view engine', 'pug');
+  app.set('views', path.join(__dirname, 'views'));
+  app.use(express.static(path.join(__dirname, '/public')));
+
+  app.use(express.urlencoded({ extended: false }));
+
+  // Request logging
+  app.use(morgan('tiny'));
+
+  // Serve favicon
+  app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
   app.use(session);
-  app.use(express.urlencoded({ extended: false }));
-  app.use(morgan('tiny'));
 
   app.use(routes);
 
