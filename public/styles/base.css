@@ -1,6 +1,9 @@
 /* CSS RESET - https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing rules */
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+
 *,
 *::before,
 *::after {
@@ -35,7 +38,7 @@ html:focus-within {
 /* Set core body defaults */
 body {
   min-height: 100vh;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
   line-height: 1.5;
 }
 
@@ -59,18 +62,58 @@ select {
   font: inherit;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
+:root {
+  --bg-color: #7395ae;
+  --header-color: #557a95;
+  --btn-color: #b1a296;
+  --gray: #494949;
+  --btn-hover-color: #5d5c61;
+}
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+html {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+header {
+  flex: 0;
+  height: 5vh;
+  padding: 0.5em;
+  background-color: var(--header-color);
+  box-shadow: 0 0.2em 0.5em var(--gray);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 1.5em;
+}
+
+nav > a {
+  background-color: var(--btn-color);
+  color: #ffffff;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+  border-radius: 5%;
+  transition: 0.2s;
+}
+
+nav > a:hover {
+  background-color: var(--btn-hover-color);
+  transition: 0.2s;
+}
+
+nav > a[active] {
+  pointer-events: none;
+  background-color: var(--btn-hover-color);
+}
+
+main {
+  flex: 1;
 }
