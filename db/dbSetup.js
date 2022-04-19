@@ -16,7 +16,7 @@ exports.dbSetup = async () => {
     cookie: {
       httpOnly: true,
       sameSite: 'strict',
-      secure: true,
+      secure: false,
       maxAge: 1000 * 60 * 60, // 1 hr
     },
   });
