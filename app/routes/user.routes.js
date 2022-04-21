@@ -1,12 +1,35 @@
 const router = require('express').Router();
 
-const { usernameCheck } = require('../middlewares/usernameCheck');
-const { isLoggedIn } = require('../middlewares/isLoggedIn');
-const { createUser, login, logout } = require('../controllers/user.controller');
-const { redirect } = require('../middlewares/util');
+const { usernameAvailable } = require('../middlewares/usernameAvailable');
+const { checkAuthenticated } = require('../middlewares/checkAuthenticated');
+const { register, login, logout } = require('../controllers/user.controller');
+const { redirect, render } = require('../middlewares/util');
+const {
+  validateLoginInput,
+  validateRegisterInput,
+} = require('../middlewares/validation');
 
-router.get('/login', login, redirect('/home'));
-router.get('/logout', isLoggedIn, logout, redirect('/'));
-router.get('/create', usernameCheck, createUser, redirect('/home'));
+router.get('/login', checkAuthenticated(false, '/home'), render('login'));
+
+router.post(
+  '/login',
+  checkAuthenticated(false, '/home'),
+  validateLoginInput,
+  login,
+  redirect('/home')
+);
+
+router.get('/register', checkAuthenticated(false, '/home'), render('register'));
+
+router.post(
+  '/register',
+  checkAuthenticated(false, '/home'),
+  usernameAvailable,
+  validateRegisterInput,
+  register,
+  redirect('/home')
+);
+
+router.get('/logout', checkAuthenticated(true, '/'), logout, redirect('/'));
 
 module.exports = router;
