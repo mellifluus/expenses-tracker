@@ -1,4 +1,4 @@
 exports.sessionObject = (userObject) => ({
   id: userObject.id,
-  userName: userObject.username,
+  username: userObject.username,
 });

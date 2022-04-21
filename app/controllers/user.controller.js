@@ -1,9 +1,10 @@
 const db = require('../../db/models');
+const { storeMessages } = require('../util/messageManager');
 const { sessionObject } = require('../util/sessionObject');
 
 const { User } = db;
 
-exports.login = (req, _res, next) => {
+exports.login = (req, res, next) => {
   const { username, password } = req.body;
 
   User.findByUsername(username)
@@ -13,10 +14,15 @@ exports.login = (req, _res, next) => {
           if (passwordMatches) {
             req.session.user = sessionObject(user);
             return next();
-          } else
-            return next({ status: 401, msg: 'Wrong username or password' });
+          } else {
+            storeMessages(req, { wrongLogin: 'Wrong username or password' });
+            return res.redirect('/login');
+          }
         });
-      } else return next({ status: 401, msg: 'Wrong username or password' });
+      } else {
+        storeMessages(req, { wrongLogin: 'Wrong username or password' });
+        return res.redirect('/login');
+      }
     })
     .catch(() => next({ status: 500, msg: 'Internal error' }));
 };
@@ -27,7 +33,7 @@ exports.logout = (req, res, next) => {
   return next();
 };
 
-exports.createUser = (req, _res, next) => {
+exports.register = (req, _res, next) => {
   const { username, password } = req.body;
   const newUser = User.build({ ...{ username } });
 

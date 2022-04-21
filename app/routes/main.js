@@ -1,14 +1,22 @@
 const router = require('express').Router();
 
-const { redirect, render } = require('../middlewares/util');
+const { render } = require('../middlewares/util');
+const { checkAuthenticated } = require('../middlewares/checkAuthenticated');
+const { retrieveUserInfo } = require('../middlewares/retrieveUserInfo');
 const userRoutes = require('./user.routes');
 const {
   unresolvedPathHandler,
   defaultErrorHandler,
 } = require('../middlewares/error.handlers');
 
-router.get('/', redirect('/home'));
-router.get('/home', render('homepage'));
+router.get('/', checkAuthenticated(false, '/home'), render('landing'));
+
+router.get(
+  '/home',
+  checkAuthenticated(true, '/login'),
+  retrieveUserInfo,
+  render('homepage')
+);
 
 router.use(userRoutes);
 

@@ -1,11 +1,18 @@
 header
   nav
-    a(href='/home') Home
-    a(href='/account') Account
-    a(href='/logout') Logout
+    if isAuthenticated
+      p#logged-in-msg Logged in as #{ user.username }
+      a(href='/home') Home
+      a(href='/Settings') Settings
+      a(href='/logout') Logout
+    else
+      a(href='/register') Register
+      a(href='/login') Login
 
-script.
-  const path = window.location.pathname.slice(1);
-  const link = document.querySelector(`nav > a[href*="${path}"]`);
+  script.
+    const path = window.location.pathname.slice(1);
+    const link = document.querySelector(`nav > a[href*="${path}"]`);
 
-  if (link) link.setAttribute('active', '');
+    if (link) link.setAttribute('active', '');
+
+    document.currentScript.remove();
