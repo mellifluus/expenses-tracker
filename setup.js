@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const favicon = require('serve-favicon');
 const routes = require('./app/routes/main');
 const { dbSetup } = require('./db/dbSetup');
+const { flashMessages } = require('./app/util/messageManager');
 
 require('dotenv').config();
 
@@ -26,6 +27,7 @@ exports.appSetup = async () => {
   app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
   app.use(session);
+  app.use(flashMessages);
 
   app.use(routes);
 
