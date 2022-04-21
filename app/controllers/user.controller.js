@@ -33,7 +33,7 @@ exports.logout = (req, res, next) => {
   return next();
 };
 
-exports.createUser = (req, _res, next) => {
+exports.register = (req, _res, next) => {
   const { username, password } = req.body;
   const newUser = User.build({ ...{ username } });
 
