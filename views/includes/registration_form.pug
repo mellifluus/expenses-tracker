@@ -1,0 +1,24 @@
+form(action='/register', method='post') 
+  label(for='username') Username:
+  br
+  input#username(type='text', name='username', placeholder='Username') 
+  if messages && messages.username
+    p#user-form-error #{ messages.username }
+  br
+  label(for='password') Password:
+  br
+  input#password(type='password', name='password', placeholder='Password')
+  if messages && messages.password
+    p#user-form-error #{ messages.password }
+  br
+  label(for='confirm_password') Password:
+  br
+  input#confirm_password(
+    type='password',
+    name='confirm_password',
+    placeholder='Confirm password'
+  )
+  if messages && messages.confirm_password
+    p#user-form-error #{ messages.confirm_password }
+  br
+  input(type='submit', value='Register')

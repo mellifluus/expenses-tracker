@@ -1,0 +1,27 @@
+form(action='/login', method='post') 
+  label(for='username') Username
+  br
+  input#username(
+    type='text',
+    name='username',
+    placeholder='Username',
+    autocomplete='username'
+  ) 
+  if messages
+    if messages.username
+      p#user-form-error #{ messages.username }
+    if messages.wrongLogin
+      p#user-form-error #{ messages.wrongLogin }
+  br
+  label(for='password') Password
+  br
+  input#password(
+    type='password',
+    name='password',
+    placeholder='Password',
+    autocomplete='current-password'
+  )
+  if messages && messages.password
+    p#user-form-error #{ messages.password }
+  br
+  input(type='submit', value='Login')
