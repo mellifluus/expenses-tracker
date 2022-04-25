@@ -1,0 +1,17 @@
+extends layouts/main-layout
+
+block title
+  if status
+    title #{ status }
+  else
+    title Not found
+
+block content
+  main
+    .flex-column
+      p.shrug-emote ¯\_(ツ)_/¯
+      br
+      if msg
+        p #{ msg }
+      else
+        p This page wasn't found

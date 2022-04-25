@@ -1,10 +1,10 @@
 exports.unresolvedPathHandler = (_req, res, _next) => {
-  return res.status(404).send('Path not found');
+  return res.render('error');
 };
 
 exports.defaultErrorHandler = (err, _req, res, _next) => {
-  if (!err.status) console.log(err);
-  return res
-    .status(err.status || 500)
-    .send(err.msg || 'Something went wrong hehe :).');
+  return res.render('error', {
+    status: err.status || 500,
+    msg: err.msg || 'Something went wrong hehe :).',
+  });
 };
