@@ -1,17 +1,19 @@
 header
   nav
-    if isAuthenticated
-      p#logged-in-msg Logged in as #{ user.username }
-      a(href='/home') Home
-      a(href='/Settings') Settings
-      a(href='/logout') Logout
-    else
-      a(href='/register') Register
-      a(href='/login') Login
+    a.logo(href='/home') Finance Tracker
+    .nav-buttons
+      if isAuthenticated
+        p#logged-in-msg Logged in as #{ user.username }
+        a(href='/home') Home
+        a(href='/settings') Settings
+        a(href='/user/logout') Logout
+      else
+        a(href='/user/register') Register
+        a(href='/user/login') Login
 
   script.
     const path = window.location.pathname.slice(1);
-    const link = document.querySelector(`nav > a[href*="${path}"]`);
+    const link = document.querySelector(`.nav-buttons > a[href*="${path}"]`);
 
     if (link) link.setAttribute('active', '');
 
