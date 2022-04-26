@@ -1,9 +1,20 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&family=Unica+One&display=swap');
+
+/* Root pseudo class */
+:root {
+  --bg-color: #c0c0c0;
+  --header-color: #e4e4e4;
+  --btn-color: #b1a296;
+  --gray: #494949;
+  --btn-hover-color: #5d5c61;
+}
+
+/*#region*/
+
 /* CSS RESET - https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing rules */
-
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
-
 *,
 *::before,
 *::after {
@@ -62,86 +73,42 @@ select {
   font: inherit;
 }
 
-:root {
-  --bg-color: #7395ae;
-  --header-color: #557a95;
-  --btn-color: #b1a296;
-  --gray: #494949;
-  --btn-hover-color: #5d5c61;
-}
+/* End of CSS RESET */
+
+/*#endregion*/
+
+/* Base CSS START */
 
 html {
   font-family: 'Titillium Web', sans-serif;
 }
 
 body {
+  background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-color);
-}
-
-header {
-  flex: 0;
-  height: 5vh;
-  padding: 0.5em;
-  background-color: var(--header-color);
-  box-shadow: 0 0.2em 0.5em var(--gray);
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  column-gap: 1.5em;
-}
-
-nav > a {
-  background-color: var(--btn-color);
-  color: #ffffff;
-  padding: 0.2em 0.8em;
-  text-decoration: none;
-  border-radius: 5%;
-  transition: 0.2s;
-}
-
-nav > a:hover {
-  background-color: var(--btn-hover-color);
-  transition: 0.2s;
-}
-
-nav > a[active] {
-  pointer-events: none;
-  background-color: var(--btn-hover-color);
 }
 
 main {
   flex: 1;
-  display: flex; /* only in login css */
-  align-items: center; /* only in login css */
-  justify-content: center; /* only in login css */
 }
 
-input {
-  margin-bottom: 1em;
-  box-shadow: 0 0.2em 0.5em var(--gray);
-  border: none;
-  outline: none;
-  padding: 0.2em;
+.shrug-emote {
+  font-size: 5em;
 }
 
-input[type='submit'] {
-  position: relative;
-  float: right;
-  cursor: pointer;
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-p#user-form-error {
-  display: inline-block;
-  position: absolute;
-  margin-left: 1em;
-  padding: 0.1em;
-  border: 1px solid;
-  background-color: #ffbaba;
-  color: #d8000c;
-  box-shadow: 0 0.2em 0.5em var(--gray);
+.test {
+  width: 50vw;
+  height: 50vh;
+}
+
+.settings-forms {
+  display: flex;
+  column-gap: 3em;
 }

@@ -1,0 +1,12 @@
+main {
+  padding: 3em 3em;
+}
+
+input[type='submit'] {
+  margin-left: 1.5em;
+}
+
+hr {
+  border: 1px solid var(--btn-color);
+  margin-bottom: 1.5em;
+}

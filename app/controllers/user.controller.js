@@ -16,12 +16,12 @@ exports.login = (req, res, next) => {
             return next();
           } else {
             storeMessages(req, { wrongLogin: 'Wrong username or password' });
-            return res.redirect('/login');
+            return res.redirect('/user/login');
           }
         });
       } else {
         storeMessages(req, { wrongLogin: 'Wrong username or password' });
-        return res.redirect('/login');
+        return res.redirect('/user/login');
       }
     })
     .catch(() => next({ status: 500, msg: 'Internal error' }));

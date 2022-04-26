@@ -23,6 +23,11 @@ module.exports = (sequelize, DataTypes) => {
         .then((passwordHash) => {
           this.passwordHash = passwordHash;
         });
+
+    setIncome = (income) => {
+      this.income = income;
+      return this.save();
+    };
   }
 
   User.init(
@@ -47,7 +52,16 @@ module.exports = (sequelize, DataTypes) => {
           is: /^\$2[ayb]\$.{56}$/,
         },
       },
+      income: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
       createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.fn('now'),
+      },
+      updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.fn('now'),
@@ -56,7 +70,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       timestamps: true,
-      updatedAt: false,
       tableName: 'user',
     }
   );

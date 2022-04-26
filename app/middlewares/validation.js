@@ -11,16 +11,11 @@ exports.validateLoginInput = async (req, res, next) => {
     .isLength({ min: 8 })
     .run(req);
 
-  const result = Object.fromEntries(
-    Object.entries(validationResult(req).mapped()).map(([key, val]) => [
-      key,
-      val.msg,
-    ])
-  );
+  const result = formatResult(req);
 
   if (Object.keys(result).length) {
     storeMessages(req, result);
-    return res.redirect('/login');
+    return res.redirect('/user/login');
   } else return next();
 };
 
@@ -41,15 +36,46 @@ exports.validateRegisterInput = async (req, res, next) => {
     .equals(req.body.password)
     .run(req);
 
-  const result = Object.fromEntries(
+  const result = formatResult(req);
+
+  if (Object.keys(result).length) {
+    storeMessages(req, result);
+    return res.redirect('/user/register');
+  } else return next();
+};
+
+exports.validateDeleteInput = async (req, res, next) => {
+  await body('confirmation', 'Please input "DELETE" to delete your account.')
+    .trim()
+    .equals('DELETE')
+    .run(req);
+
+  const result = formatResult(req);
+
+  if (Object.keys(result).length) {
+    storeMessages(req, result);
+    return res.redirect('/settings');
+  } else return next();
+};
+
+exports.validateIncomeInput = async (req, res, next) => {
+  await body('income', 'Please input a valid decimal value.')
+    .trim()
+    .isFloat({ min: 0.0 })
+    .run(req);
+
+  const result = formatResult(req);
+
+  if (Object.keys(result).length) {
+    storeMessages(req, result);
+    return res.redirect('/settings');
+  } else return next();
+};
+
+formatResult = (req) =>
+  Object.fromEntries(
     Object.entries(validationResult(req).mapped()).map(([key, val]) => [
       key,
       val.msg,
     ])
   );
-
-  if (Object.keys(result).length) {
-    storeMessages(req, result);
-    return res.redirect('/register');
-  } else return next();
-};

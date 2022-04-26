@@ -1,0 +1,14 @@
+form(action='/settings/income', method='post', autocomplete='off') 
+  if user.income
+    label(for='income') Update monthly income
+  else
+    label(for='income') Add monthly income
+  br
+  br
+  input(type='text', name='income', placeholder='1234.57') 
+  input(type='submit', value='Update')
+  if messages
+    if messages.income
+      p.form-message.error #{ messages.income }
+    if messages.incomeSuccess
+      p.form-message.success #{ messages.incomeSuccess }

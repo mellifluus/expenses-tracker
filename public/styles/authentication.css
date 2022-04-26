@@ -1,0 +1,10 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type='submit'] {
+  position: relative;
+  float: right;
+}

@@ -1,0 +1,30 @@
+input {
+  margin-bottom: 1em;
+  box-shadow: 0 0.2em 0.5em var(--gray);
+  border: none;
+  outline: none;
+  padding: 0.2em;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+}
+
+.form-message {
+  display: inline-block;
+  position: absolute;
+  margin-left: 1em;
+  padding: 0.1em;
+  border: 1px solid;
+  box-shadow: 0 0.2em 0.5em var(--gray);
+}
+
+.error {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+
+.success {
+  background-color: #dff2bf;
+  color: #270;
+}
