@@ -7,8 +7,6 @@ input {
 }
 
 input[type='submit'] {
-  position: relative;
-  float: right;
   cursor: pointer;
 }
 
