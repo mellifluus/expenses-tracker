@@ -12,24 +12,21 @@ input[type='submit'] {
   cursor: pointer;
 }
 
-p.user-form-error {
+.form-message {
   display: inline-block;
   position: absolute;
   margin-left: 1em;
   padding: 0.1em;
   border: 1px solid;
-  background-color: #ffbaba;
-  color: #d8000c;
   box-shadow: 0 0.2em 0.5em var(--gray);
 }
 
-p.income-form-error {
-  display: inline-block;
-  /* position: absolute; */
-  margin-right: -1em;
-  padding: 0.1em;
-  border: 1px solid;
+.error {
   background-color: #ffbaba;
   color: #d8000c;
-  box-shadow: 0 0.2em 0.5em var(--gray);
+}
+
+.success {
+  background-color: #9eeca4;
+  color: #48ed5e;
 }
