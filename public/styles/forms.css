@@ -1,0 +1,35 @@
+input {
+  margin-bottom: 1em;
+  box-shadow: 0 0.2em 0.5em var(--gray);
+  border: none;
+  outline: none;
+  padding: 0.2em;
+}
+
+input[type='submit'] {
+  position: relative;
+  float: right;
+  cursor: pointer;
+}
+
+p.user-form-error {
+  display: inline-block;
+  position: absolute;
+  margin-left: 1em;
+  padding: 0.1em;
+  border: 1px solid;
+  background-color: #ffbaba;
+  color: #d8000c;
+  box-shadow: 0 0.2em 0.5em var(--gray);
+}
+
+p.income-form-error {
+  display: inline-block;
+  /* position: absolute; */
+  margin-right: -1em;
+  padding: 0.1em;
+  border: 1px solid;
+  background-color: #ffbaba;
+  color: #d8000c;
+  box-shadow: 0 0.2em 0.5em var(--gray);
+}

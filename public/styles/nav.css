@@ -1,0 +1,44 @@
+header {
+  padding: 0.5em;
+  background-color: var(--header-color);
+  box-shadow: 0 0.2em 0.5em var(--gray);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5em;
+}
+
+.logo {
+  font-family: 'Unica One', cursive;
+  font-size: 1.5em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 1.5em;
+}
+
+.nav-buttons > a {
+  background-color: var(--btn-color);
+  color: #ffffff;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+  border-radius: 5%;
+  transition: 0.2s;
+}
+
+.nav-buttons > a:hover {
+  background-color: var(--btn-hover-color);
+  transition: 0.2s;
+}
+
+.nav-buttons > a[active] {
+  pointer-events: none;
+  background-color: var(--btn-hover-color);
+}
