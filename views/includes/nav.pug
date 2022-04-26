@@ -1,6 +1,9 @@
 header
   nav
-    a.logo(href='/home') Finance Tracker
+    if isAuthenticated
+      a.logo(href='/home') Finance Tracker
+    else
+      a.logo(href='/') Finance Tracker
     .nav-buttons
       if isAuthenticated
         p#logged-in-msg Logged in as #{ user.username }
