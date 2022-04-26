@@ -33,5 +33,5 @@ exports.updateIncome = (req, res, next) => {
         return next({ status: 500, msg: 'Internal error' });
       }
     })
-    .catch((err) => next({ status: 500, msg: err }));
+    .catch(() => next({ status: 500, msg: 'Internal error' }));
 };
