@@ -14,7 +14,7 @@ router.get('/', checkAuthenticated(false, '/home'), render('landing'));
 
 router.get(
   '/home',
-  checkAuthenticated(true, '/login'),
+  checkAuthenticated(true, '/user/login'),
   retrieveUserInfo,
   render('homepage')
 );

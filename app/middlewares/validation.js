@@ -15,7 +15,7 @@ exports.validateLoginInput = async (req, res, next) => {
 
   if (Object.keys(result).length) {
     storeMessages(req, result);
-    return res.redirect('/login');
+    return res.redirect('/user/login');
   } else return next();
 };
 
@@ -40,7 +40,7 @@ exports.validateRegisterInput = async (req, res, next) => {
 
   if (Object.keys(result).length) {
     storeMessages(req, result);
-    return res.redirect('/register');
+    return res.redirect('/user/register');
   } else return next();
 };
 
