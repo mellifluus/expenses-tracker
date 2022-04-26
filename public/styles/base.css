@@ -77,19 +77,20 @@ select {
 
 /*#endregion*/
 
+/* Base CSS START */
+
 html {
   font-family: 'Titillium Web', sans-serif;
 }
 
 body {
   background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  display: flex; /* only in login css */
-  align-items: center; /* only in login css */
-  justify-content: center; /* only in login css */
-  margin-top: 2em;
+  flex: 1;
 }
 
 .shrug-emote {
