@@ -4,9 +4,9 @@ form(action='/settings/income', method='post', autocomplete='off')
   else
     label(for='income') Add monthly income
   br
-  input#income(type='text', name='income', placeholder='1234.57') 
+  br
+  input(type='text', name='income', placeholder='1234.57') 
   if messages
     if messages.income
       p#income-form-error #{ messages.income }
-  br
   input(type='submit', value='Update')

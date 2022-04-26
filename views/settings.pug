@@ -1,9 +1,13 @@
 extends layouts/main-layout
 
+block styles
+  link(rel='stylesheet', type='text/css', href='/styles/forms.css')
+  link(rel='stylesheet', type='text/css', href='/styles/settings.css')
+
 block title
   title Settings
 
 block content
-  .settings-forms
-    include includes/income_form
-    include includes/delete_form
+  include includes/income_form
+  hr
+  include includes/delete_form
