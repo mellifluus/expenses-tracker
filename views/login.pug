@@ -1,8 +1,11 @@
 extends layouts/main-layout
 
+block styles
+  link(rel='stylesheet', type='text/css', href='/styles/forms.css')
+  link(rel='stylesheet', type='text/css', href='/styles/authentication.css')
+
 block title
   title Login
 
 block content
-  main
-    include includes/login_form
+  include includes/login_form
