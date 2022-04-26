@@ -1,9 +1,18 @@
 form(action='/settings/deleteUser', method='post', autocomplete='off') 
-  label(for='confirmation', style='color: red') Confirm account deletion
+  label(for='confirmation') Confirm account deletion
   br
   br
-  input(type='text', name='confirmation', placeholder='DELETE') 
+  input(
+    type='text',
+    name='confirmation',
+    placeholder='DELETE',
+    style='background-color: #ffbaba'
+  ) 
   if messages
     if messages.confirmation
       p#delete-form-error #{ messages.confirmation }
-  input(type='submit', value='Delete')
+  input(
+    type='submit',
+    value='Delete',
+    style='background-color: #ffbaba; color: #d8000c'
+  )
