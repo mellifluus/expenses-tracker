@@ -6,7 +6,9 @@ form(action='/settings/income', method='post', autocomplete='off')
   br
   br
   input(type='text', name='income', placeholder='1234.57') 
+  input(type='submit', value='Update')
   if messages
     if messages.income
-      p#income-form-error #{ messages.income }
-  input(type='submit', value='Update')
+      p.form-message.error #{ messages.income }
+    if messages.incomeSuccess
+      p.form-message.success #{ messages.incomeSuccess }

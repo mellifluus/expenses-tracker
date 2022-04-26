@@ -25,7 +25,7 @@ exports.updateIncome = (req, res, next) => {
     .then((user) => {
       if (user) {
         user.setIncome(parseFloat(income)).then(() => {
-          storeMessages(req, { income: 'Income updated successfully.' });
+          storeMessages(req, { incomeSuccess: 'Income updated successfully.' });
           req.session.user.income = user.income;
           return next();
         });

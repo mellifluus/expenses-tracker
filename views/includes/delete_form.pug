@@ -8,11 +8,11 @@ form(action='/settings/deleteUser', method='post', autocomplete='off')
     placeholder='DELETE',
     style='background-color: #ffbaba'
   ) 
-  if messages
-    if messages.confirmation
-      p#delete-form-error #{ messages.confirmation }
   input(
     type='submit',
     value='Delete',
     style='background-color: #ffbaba; color: #d8000c'
   )
+  if messages
+    if messages.confirmation
+      p.form-message.error #{ messages.confirmation }
