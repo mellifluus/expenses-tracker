@@ -2,7 +2,6 @@ const router = require('express').Router();
 
 const { render } = require('../middlewares/util');
 const { checkAuthenticated } = require('../middlewares/checkAuthenticated');
-const { retrieveUserInfo } = require('../middlewares/retrieveUserInfo');
 const userRoutes = require('./user.routes');
 const settingsRoutes = require('./settings.routes');
 const expenseRoutes = require('./expense.routes');
@@ -16,7 +15,6 @@ router.get('/', checkAuthenticated(false, '/home'), render('landing'));
 router.get(
   '/home',
   checkAuthenticated(true, '/user/login'),
-  retrieveUserInfo,
   render('homepage')
 );
 

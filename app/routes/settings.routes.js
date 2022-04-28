@@ -5,19 +5,13 @@ const {
   deleteUser,
 } = require('../controllers/settings.controller');
 const { checkAuthenticated } = require('../middlewares/checkAuthenticated');
-const { retrieveUserInfo } = require('../middlewares/retrieveUserInfo');
 const { redirect, render } = require('../middlewares/util');
 const {
   validateIncomeInput,
   validateDeleteInput,
 } = require('../middlewares/validation');
 
-router.get(
-  '/',
-  checkAuthenticated(true, '/'),
-  retrieveUserInfo,
-  render('settings')
-);
+router.get('/', checkAuthenticated(true, '/'), render('settings'));
 
 router.post(
   '/income',

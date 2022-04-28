@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const routes = require('./app/routes/main');
 const { dbSetup } = require('./db/dbSetup');
 const { flashMessages } = require('./app/util/messageManager');
+const { retrieveUserInfo } = require('./app/middlewares/retrieveUserInfo');
 
 require('dotenv').config();
 
@@ -27,6 +28,7 @@ exports.appSetup = async () => {
   app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
   app.use(session);
+  app.use(retrieveUserInfo);
   app.use(flashMessages);
 
   app.use(routes);
