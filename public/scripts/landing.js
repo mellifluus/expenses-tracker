@@ -51,7 +51,7 @@ const config = {
       {
         data: data,
         borderColor: 'rgb(54, 162, 235)',
-        borderWidth: 1,
+        borderWidth: 2,
         radius: 0,
       },
     ],
@@ -73,6 +73,14 @@ const config = {
     scales: {
       x: {
         type: 'linear',
+        ticks: {
+          display: false,
+        },
+      },
+      y: {
+        ticks: {
+          display: false,
+        },
       },
     },
   },
