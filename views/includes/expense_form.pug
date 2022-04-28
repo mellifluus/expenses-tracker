@@ -1,0 +1,26 @@
+form(action='/expense/create', method='post', autocomplete='off') 
+  label(for='amount') Amount
+  br
+  input(type='text', name='amount', placeholder='54.67', required) 
+  if messages
+    if messages.amount
+      p.form-message.error #{ messages.amount }
+  br 
+  label(for='categoryId') Category
+  br
+  select(name='categoryId', required)
+    option(value='0') Housing
+    option(value='1') Transportation
+    option(value='2') Food
+    option(value='3') Utilities
+    option(value='4') Healthcare
+    option(value='5') Personal spending
+  br 
+  label(for='date') Date
+  br
+  input(type='date', name='date', size='20', required)
+  br
+  input(type='submit', value='Add')
+  script.
+    document.querySelector('input[name="amount"]').setAttribute('placeholder', (Math.random() * 500).toFixed(2));
+    document.currentScript.remove();

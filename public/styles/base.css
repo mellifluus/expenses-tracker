@@ -92,23 +92,3 @@ body {
 main {
   flex: 1;
 }
-
-.shrug-emote {
-  font-size: 5em;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.test {
-  width: 50vw;
-  height: 50vh;
-}
-
-.settings-forms {
-  display: flex;
-  column-gap: 3em;
-}

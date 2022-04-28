@@ -5,6 +5,7 @@ const { checkAuthenticated } = require('../middlewares/checkAuthenticated');
 const { retrieveUserInfo } = require('../middlewares/retrieveUserInfo');
 const userRoutes = require('./user.routes');
 const settingsRoutes = require('./settings.routes');
+const expenseRoutes = require('./expense.routes');
 const {
   unresolvedPathHandler,
   defaultErrorHandler,
@@ -21,6 +22,7 @@ router.get(
 
 router.use('/user', userRoutes);
 router.use('/settings', settingsRoutes);
+router.use('/expense', expenseRoutes);
 
 router.use(unresolvedPathHandler);
 router.use(defaultErrorHandler);
