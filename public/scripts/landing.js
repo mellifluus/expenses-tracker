@@ -6,7 +6,7 @@ for (let i = 0; i < 200; i++) {
   data.push({ x: i, y: prev });
 }
 
-const totalDuration = 10000;
+const totalDuration = 5000;
 const delayBetweenPoints = totalDuration / data.length;
 const previousY = (ctx) =>
   ctx.index === 0
