@@ -1,8 +1,8 @@
 form(action='/settings/income', method='post', autocomplete='off') 
   if user.income
-    label(for='income') Update monthly income
+    label(for='income') <u>Update monthly income</u>
   else
-    label(for='income') Add monthly income
+    label(for='income') <u>Add monthly income</u>
   br
   br
   input(type='text', name='income') 
