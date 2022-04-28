@@ -1,5 +1,8 @@
 extends layouts/main-layout
 
+block styles
+  link(rel='stylesheet', type='text/css', href='/styles/error.css')
+
 block title
   if status
     title #{ status }
@@ -7,10 +10,9 @@ block title
     title Not found
 
 block content
-  .flex-column
-    p.shrug-emote ¯\_(ツ)_/¯
-    br
-    if msg
-      p #{ msg }
-    else
-      p This page wasn't found
+  p.shrug ¯\_(ツ)_/¯
+  br
+  if msg
+    p #{ msg }
+  else
+    p The page wasn't found
