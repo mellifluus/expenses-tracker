@@ -1,6 +1,6 @@
-const ctx = document.getElementById('myChart');
+const ctx = document.getElementById('line-chart');
 const myChart = new Chart(ctx, {
-  type: 'bar',
+  type: 'line',
   data: {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
@@ -27,6 +27,8 @@ const myChart = new Chart(ctx, {
     ],
   },
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       y: {
         beginAtZero: true,

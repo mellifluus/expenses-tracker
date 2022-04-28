@@ -1,12 +1,17 @@
 extends layouts/main-layout
 
+block styles
+  link(rel='stylesheet', type='text/css', href='/styles/forms.css')
+  link(rel='stylesheet', type='text/css', href='/styles/homepage.css')
+
 block title
   title Homepage
 
 block content
-  .test
-    canvas#myChart
-  script(
-    src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js'
-  )
-  script(src='scripts/app.js') 
+  include includes/expense_form
+  //- .chart-container
+  //-   canvas#line-chart
+  //- script(
+  //-   src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js'
+  //- )
+  //- script(src='/scripts/chart.js') 

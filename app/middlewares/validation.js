@@ -79,3 +79,25 @@ formatResult = (req) =>
       val.msg,
     ])
   );
+
+exports.validateExpenseInput = async (req, res, next) => {
+  await body('amount', 'Please input a valid amount.')
+    .trim()
+    .isFloat({ min: 0.0 })
+    .run(req);
+
+  await body('categoryId').isInt({ min: 0, max: 5 }).run(req);
+
+  await body('date').isDate().run(req);
+
+  const result = formatResult(req);
+
+  if ('amount' in result) {
+    storeMessages(req, result);
+    return res.redirect('/home');
+  }
+
+  return Object.keys(result).length
+    ? next({ status: 500, msg: 'Internal error' })
+    : next();
+};
