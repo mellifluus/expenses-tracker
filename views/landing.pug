@@ -1,7 +1,16 @@
 extends layouts/main-layout
 
+block styles
+  link(rel='stylesheet', type='text/css', href='/styles/landing.css')
+
 block title
-  title Expense tracker
+  title Finance tracker
 
 block content
-  h1 Expense tracker :)))
+  h1 Keep track of your expenses :)
+  .chart-container 
+    canvas#landing-chart
+  script(
+    src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js'
+  )
+  script(src='/scripts/landing.js')
