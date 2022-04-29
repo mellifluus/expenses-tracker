@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e js,json,html,css,pug --quiet --trace-warnings app.js",
     "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -e js,json,html,css,pug --quiet --trace-warnings app.js",
     "prepare": "husky install .husky",
     "format": "prettier . --write"
   },
