@@ -1,5 +1,6 @@
 const db = require('../../db/models');
 const { QueryTypes } = require('sequelize');
+const { storeMessages } = require('../util/messageManager');
 
 const { Expense, sequelize } = db;
 
@@ -12,7 +13,12 @@ exports.addExpense = (req, res, next) => {
     ...{ date },
     userId: res.locals.user.id,
   })
-    .then(() => next())
+    .then((newExpense) => {
+      if (newExpense)
+        storeMessages(req, { success: 'Successfully added expense' });
+      else storeMessages(req, { error: 'Something went wrong' });
+      return next();
+    })
     .catch(() => next({ status: 500, msg: 'Internal error' }));
 };
 

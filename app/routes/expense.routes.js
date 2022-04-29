@@ -13,7 +13,7 @@ router.post(
   checkAuthenticated(true, '/login'),
   validateExpenseInput,
   addExpense,
-  redirect('/home')
+  redirect('/settings')
 );
 
 router.post('/get', checkAuthenticated(true, '/login'), getExpenses);

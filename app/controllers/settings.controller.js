@@ -18,7 +18,7 @@ exports.deleteUser = (req, res, next) => {
     .catch(() => next({ status: 500, msg: 'Internal error' }));
 };
 
-exports.updateIncome = (req, res, next) => {
+exports.updateIncome = (req, _res, next) => {
   const { income } = req.body;
 
   User.findByPk(req.session.user.id)
