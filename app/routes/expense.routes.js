@@ -2,7 +2,10 @@ const router = require('express').Router();
 
 const { checkAuthenticated } = require('../middlewares/checkAuthenticated');
 const { redirect } = require('../middlewares/util');
-const { addExpense } = require('../controllers/expense.controller');
+const {
+  addExpense,
+  getExpenses,
+} = require('../controllers/expense.controller');
 const { validateExpenseInput } = require('../middlewares/validation');
 
 router.post(
@@ -12,5 +15,7 @@ router.post(
   addExpense,
   redirect('/home')
 );
+
+router.post('/get', checkAuthenticated(true, '/login'), getExpenses);
 
 module.exports = router;
