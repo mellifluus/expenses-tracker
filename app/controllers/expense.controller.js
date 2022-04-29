@@ -25,7 +25,8 @@ exports.addExpense = (req, res, next) => {
 exports.getExpenses = (req, res, _next) => {
   const { year, month } = req.body;
 
-  if (!year || !month) return res.status(400).send();
+  if (year === 'undefined' || month === 'undefined')
+    return res.status(200).send({});
 
   sequelize
     .query(

@@ -5,7 +5,7 @@ main {
 }
 
 .chart-container {
-  position: relative;
+  margin-top: 0.5em;
   height: 80vh;
 }
 
@@ -15,6 +15,7 @@ main {
 }
 
 .select-date {
+  margin-top: 1em;
   display: flex;
   justify-content: flex-end;
   column-gap: 1.5em;
