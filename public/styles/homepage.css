@@ -1,9 +1,30 @@
-.chart-container {
-  position: relative;
-  height: 50vh;
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5em;
 }
 
-#line-chart {
+.chart-container {
+  position: relative;
+  height: 80vh;
+}
+
+#chart {
   width: 100%;
   height: 100%;
+}
+
+.forms-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select-date {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1.5em;
+}
+
+option:first-child {
+  display: none;
 }

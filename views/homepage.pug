@@ -8,9 +8,12 @@ block title
   title Homepage
 
 block content
-  //- .chart-container
-  //-   canvas#line-chart
-  //- script(
-  //-   src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js'
-  //- )
-  //- script(src='/scripts/chart.js') 
+  .chart-container
+    canvas#chart
+  .forms-container
+    //- include includes/expense_form
+    include includes/date_form
+  script(
+    src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js'
+  )
+  script(src='/scripts/home.js') 
