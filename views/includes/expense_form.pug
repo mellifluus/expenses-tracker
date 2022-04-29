@@ -21,7 +21,7 @@ form(action='/expense/create', method='post', autocomplete='off')
   br 
   label(for='date') Date
   br
-  input(type='date', name='date', size='20', required)
+  input(type='date', name='date', min='2020-01-01', required)
   input(type='submit', value='Add')
   script.
     document.querySelector('input[name="amount"]').setAttribute('placeholder', (Math.random() * 500).toFixed(2));
