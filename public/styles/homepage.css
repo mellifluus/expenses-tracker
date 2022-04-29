@@ -14,17 +14,8 @@ main {
   height: 100%;
 }
 
-.forms-container {
-  display: flex;
-  justify-content: space-between;
-}
-
 .select-date {
   display: flex;
   justify-content: flex-end;
   column-gap: 1.5em;
-}
-
-option:first-child {
-  display: none;
 }
