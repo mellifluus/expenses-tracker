@@ -60,6 +60,9 @@ const months = [
 
 const updateChart = (expenses) => {
   if (expenses.length) {
+    if (!chart.options.scales.y.ticks.display) {
+      chart.options.scales.y.ticks.display = true;
+    }
     if (selectMonth.value === '13') {
       chart.data.labels = months;
 
