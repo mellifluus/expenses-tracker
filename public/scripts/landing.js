@@ -52,6 +52,8 @@ const config = {
         data: data,
         borderColor: 'rgb(54, 162, 235)',
         borderWidth: 2,
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
         radius: 0,
       },
     ],
